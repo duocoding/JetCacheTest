@@ -3,15 +3,17 @@ package com.example.jetCacheTest;
 import com.alicp.jetcache.Cache;
 import com.alicp.jetcache.anno.CacheType;
 import com.alicp.jetcache.anno.CreateCache;
+import com.alicp.jetcache.anno.config.EnableCreateCacheAnnotation;
 import com.alicp.jetcache.embedded.CaffeineCache;
 import com.alicp.jetcache.embedded.EmbeddedCacheConfig;
+import com.alicp.jetcache.redis.RedisCache;
+import com.alicp.jetcache.redis.RedisCacheConfig;
+import org.checkerframework.checker.units.qual.K;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
@@ -23,6 +25,7 @@ import java.util.concurrent.*;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = JetCacheTestApplication.class)
+@EnableCreateCacheAnnotation
 public class JetCachePerformanceTest {
     @CreateCache(expire = 600,name = "aliCache",area = "com.example.jetCacheTest",cacheType = CacheType.LOCAL)
     private static Cache<Object,Object> userCache;

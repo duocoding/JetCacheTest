@@ -5,7 +5,7 @@ import com.alicp.jetcache.anno.config.EnableMethodCache;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.alicp.jetcache.autoconfigure"})
 @EnableMethodCache(basePackages = "com.example.jetCacheTest")
 @EnableCreateCacheAnnotation
 public class JetCacheTestApplication {
