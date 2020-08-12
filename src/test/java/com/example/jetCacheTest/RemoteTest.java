@@ -25,6 +25,7 @@ import java.util.concurrent.Executors;
 public class RemoteTest {
 
     @CreateCache(name = "RemoteTest", expire = 600000, cacheType = CacheType.REMOTE)
+
     private Cache<String, String> cache;
 
     @Test
